@@ -1,15 +1,16 @@
 import Onboard from '@web3-onboard/core'
 import injectedWalletsModule from '@web3-onboard/injected-wallets'
-import walletConnectModule from '@web3-onboard/walletconnect'
+//import walletConnectModule from '@web3-onboard/walletconnect'
 import coinbaseModule from '@web3-onboard/coinbase'
 import bitgetModule from '@web3-onboard/bitget'
 
 const injected = injectedWalletsModule()
-const walletConnect = walletConnectModule({})
+//const walletConnect = walletConnectModule({})
 const coinbaseWallet = coinbaseModule()
 const bitgetWallet = bitgetModule()
 
-const wallets = [injected, walletConnect, bitgetWallet, coinbaseWallet]
+const wallets = [injected, bitgetWallet, coinbaseWallet]
+//const wallets = [injected, walletConnect, bitgetWallet, coinbaseWallet] old
 
 const chains = [
   {
@@ -21,7 +22,7 @@ const chains = [
   {
     id: 137,
     token: 'MATIC',
-    label: 'Matic Mainnet',
+    label: 'Polygon PoS',
     rpcUrl: 'https://matic-mainnet.chainstacklabs.com'
   },
   {
@@ -45,22 +46,32 @@ const chains = [
 ]
 
 const appMetadata = {
-  name: 'Web3-Onboard Vanilla JS Demo',
-  icon: '<svg />',
-  logo: '<svg />',
-  description: 'Demo using Onboard',
+  name: 'Roundtable',
+  icon: 'logo.png',
+  logo: 'logo.png',
+  description: 'Stake Your Seat',
   recommendedInjectedWallets: [
-    { name: 'Coinbase', url: 'https://wallet.coinbase.com/' },
-    { name: 'MetaMask', url: 'https://metamask.io' }
+    { name: 'MetaMask', url: 'https://metamask.io' },
+    { name: 'Coinbase', url: 'https://wallet.coinbase.com/' }
+    
   ]
 }
+
+const connect = {
+  showSidebar: true,
+  disableClose: false,
+  autoConnectAllPreviousWallet: true
+}
+
 let onboard
 
 if (!onboard) {
   onboard = Onboard({
     wallets,
     chains,
-    appMetadata
+    appMetadata,
+    connect
+    
   })
 }
 
