@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const NodePolyfillPlugin = require("node-polyfill-webpack-plugin")
 
 module.exports = {
+  mode: 'production',
   entry: './src/index.js',
   output: {
     filename: '[name].js',
@@ -57,6 +58,9 @@ module.exports = {
       process: 'process/browser',
       Buffer: ['buffer', 'Buffer']
     }),
+    new webpack.optimize.MinChunkSizePlugin({
+      minChunkSize: 100000, // ~100kb
+  }),
     new NodePolyfillPlugin()
   ],
   devServer: {

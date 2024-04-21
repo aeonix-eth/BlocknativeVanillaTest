@@ -2,14 +2,15 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/x-icon" href="./public/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <title>Roundtable | Stake Your Seat</title>
-    <script defer src="js/runtime.js"></script>
-    <script defer src="js/main.js"></script>
+    <script defer src="dist/runtime.js"></script>
+    <script defer src="dist/main.js"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="Roundtable | Stake Your Seat" />
     <meta name="author" content="Roundtable" />
+    <meta http-equiv="cache-control" content="no-cache" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
@@ -20,7 +21,7 @@
 
   </head>
   <body>
-    <div id="splash" class="splash"><div class="join stakeFont" onclick="join()"><span class="stakeEnter">STAKE</span><br class="shortBreak"><span class="stakeEnter" style="font-size:24px;">YOUR</span><br class="shortBreak"><span class="stakeEnter">SEAT</span></div></div>
+    <div id="splash" class="splash"><div class="join stakeFont" onclick="join()"><span class="stakeEnter">STAKE</span><span class="stakeEnter" style="font-size:24px;">YOUR</span><span class="stakeEnter">SEAT</span></div></div>
     <script>
       function join() {
         var x = document.getElementById("splash");
@@ -30,24 +31,37 @@
      <body id="page-top">
       <!-- Navigation-->
       <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-          <div class="container px-4 px-lg-5">
-              <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
+          <div class="container-fluid px-4 px-lg-5">
+              <a class="navbar-brand" href="#page-top"><img src="img/logo.png" alt="Roundtable Logo" style="height:40px"> Roundtable</a>
               <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                   Menu
                   <i class="fas fa-bars"></i>
               </button>
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="javascript:void(0);" onclick="show('Dashboard')">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="javascript:void(0);" onclick="show('Opportunities')">Opportunities</a></li>
+                <li class="nav-item"><a class="nav-link" href="javascript:void(0);" onclick="show('Leaderboard')">Leaderboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="javascript:void(0);" onclick="show('Airdrop')">Airdrop</a></li>
+            </ul>
               <div class="collapse navbar-collapse" id="navbarResponsive">
-                  <ul class="navbar-nav ms-auto">
-                      <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                      <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                      <li class="nav-item"><a class="nav-link" href="#signup">Contact</a></li>
-                  </ul>
+                <div class="walletWidget">
+                  <div class="wallet hidden">
+                    <div class="connected">
+                      <div class="address"></div>
+                      <div class="label"></div>
+                    </div>
+                    <button class="disconnect-button">Disconnect</button>
+                  </div>
+                  <div class="disconnected outerConnect">
+                    <button class="connect-button" type="button">Connect Wallet</button>
+                  </div>
+                </div>
               </div>
           </div>
       </nav>
-      <!-- Masthead-->
+      <!-- Masthead
       <header class="masthead">
-          <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+          <div class="container-fluid px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
               <div class="d-flex justify-content-center">
                   <div class="text-center">
                       <h1 class="mx-auto my-0 text-uppercase">Grayscale</h1>
@@ -57,7 +71,7 @@
               </div>
           </div>
       </header>
-      <!-- About-->
+      <!-- About
       <section class="about-section text-center" id="about">
           <div class="container px-4 px-lg-5">
               <div class="row gx-4 gx-lg-5 justify-content-center">
@@ -70,154 +84,443 @@
                       </p>
                   </div>
               </div>
-              <img class="img-fluid" src="assets/img/ipad.png" alt="..." />
+              <img class="img-fluid" src="img/ipad.png" alt="..." />
           </div>
       </section>
       <!-- Projects-->
-      <section class="projects-section bg-light" id="projects">
-          <div class="container px-4 px-lg-5">
-              <!-- Featured Project Row-->
-              <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
-                  <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/bg-masthead.jpg" alt="..." /></div>
-                  <div class="col-xl-4 col-lg-5">
-                      <div class="featured-text text-center text-lg-left">
-                          <h4>Shoreline</h4>
-                          <p class="text-black-50 mb-0">Grayscale is open source and MIT licensed. This means you can use it for any project - even commercial projects! Download it, customize it, and publish your website!</p>
-                      </div>
-                  </div>
-              </div>
-              <!-- Project One Row-->
-              <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
-                  <div class="col-lg-6"><img class="img-fluid" src="assets/img/demo-image-01.jpg" alt="..." /></div>
-                  <div class="col-lg-6">
-                      <div class="bg-black text-center h-100 project">
-                          <div class="d-flex h-100">
-                              <div class="project-text w-100 my-auto text-center text-lg-left">
-                                  <h4 class="text-white">Misty</h4>
-                                  <p class="mb-0 text-white-50">An example of where you can put an image of a project, or anything else, along with a description.</p>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <!-- Project Two Row-->
-              <div class="row gx-0 justify-content-center">
-                  <div class="col-lg-6"><img class="img-fluid" src="assets/img/demo-image-02.jpg" alt="..." /></div>
-                  <div class="col-lg-6 order-lg-first">
-                      <div class="bg-black text-center h-100 project">
-                          <div class="d-flex h-100">
-                              <div class="project-text w-100 my-auto text-center text-lg-right">
-                                  <h4 class="text-white">Mountains</h4>
-                                  <p class="mb-0 text-white-50">Another example of a project with its respective description. These sections work well responsively as well!</p>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
+      <section class="projects-section bg-royal-purple" id="Dashboard">
+        <div class="container-fluid px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+            <div class="justify-content-center w-100">
+                <h1 class="stakeFont" style="font-size:36px;color:#FFF;">Dashboard</h1><br><br>
+                <div class="table100 ver6 m-b-110">
+                    <table data-vertable="ver6">
+                        <thead>
+                        <tr class="row100 head">
+                        <th class="column100 column1" data-column="column1">Rank</th>
+                        <th class="column100 column1" data-column="column1">Account</th>
+                        <th class="column100 column2" data-column="column2">Ethereum</th>
+                        <th class="column100 column3" data-column="column3">Arbitrum</th>
+                        <th class="column100 column4" data-column="column4">Optimism</th>
+                        <th class="column100 column5" data-column="column5">Blast</th>
+                        <th class="column100 column6" data-column="column6">zkSync</th>
+                        <th class="column100 column7" data-column="column7">Polygon zkEVM</th>
+                        <th class="column100 column8" data-column="column8">Linea</th>
+                        <th class="column100 column8" data-column="column8">Your Points</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="row100">
+                        <td class="column100 column2" data-column="column2">#1337</td>
+                        <td class="column100 column1" data-column="column1">Lawrence Scott</td>
+                        <td class="column100 column2" data-column="column2">800</td>
+                        <td class="column100 column3" data-column="column3">--</td>
+                        <td class="column100 column4" data-column="column4">--</td>
+                        <td class="column100 column5" data-column="column5">800</td>
+                        <td class="column100 column6" data-column="column6">--</td>
+                        <td class="column100 column7" data-column="column7">500</td>
+                        <td class="column100 column8" data-column="column8">800</td>
+                        <td class="column100 column8" data-column="column8">2900</td>
+
+                        </tr>
+                        </tbody>
+                        </table>
+                    </div>
+                    <br><br><br><br>
+                    <div class="table100 ver6 m-b-110">
+                        <table data-vertable="ver6">
+                            <thead>
+                            <tr class="row100 head">
+                            <th class="column100 column1" data-column="column1">Platforms</th>
+                            <th class="column100 column2" data-column="column2">Ethereum</th>
+                            <th class="column100 column3" data-column="column3">Arbitrum</th>
+                            <th class="column100 column4" data-column="column4">Optimism</th>
+                            <th class="column100 column5" data-column="column5">Blast</th>
+                            <th class="column100 column6" data-column="column6">zkSync</th>
+                            <th class="column100 column7" data-column="column7">Polygon zkEVM</th>
+                            <th class="column100 column8" data-column="column8">Linea</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="row100">
+                            <td class="column100 column1" data-column="column1">Ether.fi</td>
+                            <td class="column100 column2" data-column="column2"><i class="fa-solid fa-check"></i> (1x)</td>
+                            <td class="column100 column3" data-column="column3">--</td>
+                            <td class="column100 column4" data-column="column4">--</td>
+                            <td class="column100 column5" data-column="column5"><i class="fa-solid fa-check"></i> (3x)</td>
+                            <td class="column100 column6" data-column="column6">--</td>
+                            <td class="column100 column7" data-column="column7"><i class="fa-solid fa-check"></i> (2x)</td>
+                            <td class="column100 column8" data-column="column8"><i class="fa-solid fa-check"></i> (2x)</td>
+                            </tr>
+                            <tr class="row100">
+                            <td class="column100 column1" data-column="column1">Swell</td>
+                            <td class="column100 column2" data-column="column2">--</td>
+                            <td class="column100 column3" data-column="column3"><i class="fa-solid fa-check"></i> (2x)</td>
+                            <td class="column100 column4" data-column="column4"><i class="fa-solid fa-check"></i> (3x)</td>
+                            <td class="column100 column5" data-column="column5">--</td>
+                            <td class="column100 column6" data-column="column6"><i class="fa-solid fa-check"></i> (2x)</td>
+                            <td class="column100 column7" data-column="column7">--</td>
+                            <td class="column100 column8" data-column="column8">--</td>
+                            </tr>
+                            <tr class="row100">
+                            <td class="column100 column1" data-column="column1">Stakestone</td>
+                            <td class="column100 column2" data-column="column2"><i class="fa-solid fa-check"></i> (1x)</td>
+                            <td class="column100 column3" data-column="column3">--</td>
+                            <td class="column100 column4" data-column="column4">--</td>
+                            <td class="column100 column5" data-column="column5">--</td>
+                            <td class="column100 column6" data-column="column6">--</td>
+                            <td class="column100 column7" data-column="column7"><i class="fa-solid fa-check"></i> (2x)</td>
+                            <td class="column100 column8" data-column="column8"><i class="fa-solid fa-check"></i> (2x)</td>
+                            </tr>
+                            <tr class="row100">
+                            <td class="column100 column1" data-column="column1">Kelp DAO</td>
+                            <td class="column100 column2" data-column="column2">--</td>
+                            <td class="column100 column3" data-column="column3"><i class="fa-solid fa-check"></i> (3x)</td>
+                            <td class="column100 column4" data-column="column4"><i class="fa-solid fa-check"></i> (1x)</td>
+                            <td class="column100 column5" data-column="column5">--</td>
+                            <td class="column100 column6" data-column="column6"><i class="fa-solid fa-check"></i> (2x)</td>
+                            <td class="column100 column7" data-column="column7">--</td>
+                            <td class="column100 column8" data-column="column8">--</td>
+                            </tr>
+                            <tr class="row100">
+                            <td class="column100 column1" data-column="column1">Pendle</td>
+                            <td class="column100 column2" data-column="column2"><i class="fa-solid fa-check"></i> (2x)</td>
+                            <td class="column100 column3" data-column="column3">--</td>
+                            <td class="column100 column4" data-column="column4">--</td>
+                            <td class="column100 column5" data-column="column5"><i class="fa-solid fa-check"></i> (2x)</td>
+                            <td class="column100 column6" data-column="column6">--</td>
+                            <td class="column100 column7" data-column="column7"><i class="fa-solid fa-check"></i> (1x)</td>
+                            <td class="column100 column8" data-column="column8"><i class="fa-solid fa-check"></i> (2x)</td>
+                            </tr>
+                            <tr class="row100">
+                            <td class="column100 column1" data-column="column1">Ethena</td>
+                            <td class="column100 column2" data-column="column2">--</td>
+                            <td class="column100 column3" data-column="column3"><i class="fa-solid fa-check"></i> (2x)</td>
+                            <td class="column100 column4" data-column="column4"><i class="fa-solid fa-check"></i> (1x)</td>
+                            <td class="column100 column5" data-column="column5">--</td>
+                            <td class="column100 column6" data-column="column6"><i class="fa-solid fa-check"></i> (2x)</td>
+                            <td class="column100 column7" data-column="column7">--</td>
+                            <td class="column100 column8" data-column="column8">--</td>
+                            </tr>
+                            <tr class="row100">
+                            <td class="column100 column1" data-column="column1">Puffer Finance</td>
+                            <td class="column100 column2" data-column="column2"><i class="fa-solid fa-check"></i> (2x)</td>
+                            <td class="column100 column3" data-column="column3">--</td>
+                            <td class="column100 column4" data-column="column4">--</td>
+                            <td class="column100 column5" data-column="column5">--</td>
+                            <td class="column100 column6" data-column="column6">--</td>
+                            <td class="column100 column7" data-column="column7"><i class="fa-solid fa-check"></i> (3x)</td>
+                            <td class="column100 column8" data-column="column8"><i class="fa-solid fa-check"></i> (2x)</td>
+                            </tr>
+                            <tr class="row100">
+                            <td class="column100 column1" data-column="column1">Aerodrome</td>
+                            <td class="column100 column2" data-column="column2"><i class="fa-solid fa-check"></i> (2x)</td>
+                            <td class="column100 column3" data-column="column3">--</td>
+                            <td class="column100 column4" data-column="column4">--</td>
+                            <td class="column100 column5" data-column="column5"><i class="fa-solid fa-check"></i> (3x)</td>
+                            <td class="column100 column6" data-column="column6">--</td>
+                            <td class="column100 column7" data-column="column7"><i class="fa-solid fa-check"></i> (2x)</td>
+                            <td class="column100 column8" data-column="column8"><i class="fa-solid fa-check"></i> (2x)</td>
+                            </tr>
+                            </tbody>
+                            </table>
+                        </div>
+            </div>
+        </div>
       </section>
-      <!-- Signup-->
-      <section class="signup-section" id="signup">
-          <div class="container px-4 px-lg-5">
-              <div class="row gx-4 gx-lg-5">
-                  <div class="col-md-10 col-lg-8 mx-auto text-center">
-                      <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
-                      <h2 class="text-white mb-5">Subscribe to receive updates!</h2>
-                      <!-- * * * * * * * * * * * * * * *-->
-                      <!-- * * SB Forms Contact Form * *-->
-                      <!-- * * * * * * * * * * * * * * *-->
-                      <!-- This form is pre-integrated with SB Forms.-->
-                      <!-- To make this form functional, sign up at-->
-                      <!-- https://startbootstrap.com/solution/contact-forms-->
-                      <!-- to get an API token!-->
-                      <form class="form-signup" id="contactForm" data-sb-form-api-token="API_TOKEN">
-                          <!-- Email address input-->
-                          <div class="row input-group-newsletter">
-                              <div class="col"><input class="form-control" id="emailAddress" type="email" placeholder="Enter email address..." aria-label="Enter email address..." data-sb-validations="required,email" /></div>
-                              <div class="col-auto"><button class="btn btn-primary disabled" id="submitButton" type="submit">Notify Me!</button></div>
-                          </div>
-                          <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:required">An email is required.</div>
-                          <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:email">Email is not valid.</div>
-                          <!-- Submit success message-->
-                          <!---->
-                          <!-- This is what your users will see when the form-->
-                          <!-- has successfully submitted-->
-                          <div class="d-none" id="submitSuccessMessage">
-                              <div class="text-center mb-3 mt-2 text-white">
-                                  <div class="fw-bolder">Form submission successful!</div>
-                                  To activate this form, sign up at
-                                  <br />
-                                  <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                              </div>
-                          </div>
-                          <!-- Submit error message-->
-                          <!---->
-                          <!-- This is what your users will see when there is-->
-                          <!-- an error submitting the form-->
-                          <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3 mt-2">Error sending message!</div></div>
-                      </form>
-                  </div>
-              </div>
-          </div>
+      <!-- Opportunities -->
+      <section class="projects-section bg-royal-purple hidden" id="Opportunities">
+        <div class="container-fluid px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+            <div class="justify-content-center w-100">
+                <h1 class="stakeFont" style="font-size:36px;color:#FFF;">Opportunities</h1><br><br>
+                <div class="table100 ver6 m-b-110">
+                    <table data-vertable="ver6">
+                        <thead>
+                        <tr class="row100 head">
+                        <th class="column100 column1" data-column="column1">Platforms</th>
+                        <th class="column100 column2" data-column="column2">Ethereum</th>
+                        <th class="column100 column3" data-column="column3">Arbitrum</th>
+                        <th class="column100 column4" data-column="column4">Optimism</th>
+                        <th class="column100 column5" data-column="column5">Blast</th>
+                        <th class="column100 column6" data-column="column6">zkSync</th>
+                        <th class="column100 column7" data-column="column7">Polygon zkEVM</th>
+                        <th class="column100 column8" data-column="column8">Linea</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="row100">
+                        <td class="column100 column1" data-column="column1">Ether.fi</td>
+                        <td class="column100 column2" data-column="column2"><i class="fa-solid fa-check"></i> (1x)</td>
+                        <td class="column100 column3" data-column="column3">--</td>
+                        <td class="column100 column4" data-column="column4">--</td>
+                        <td class="column100 column5" data-column="column5"><i class="fa-solid fa-check"></i> (3x)</td>
+                        <td class="column100 column6" data-column="column6">--</td>
+                        <td class="column100 column7" data-column="column7"><i class="fa-solid fa-check"></i> (2x)</td>
+                        <td class="column100 column8" data-column="column8"><i class="fa-solid fa-check"></i> (2x)</td>
+                        </tr>
+                        <tr class="row100">
+                        <td class="column100 column1" data-column="column1">Swell</td>
+                        <td class="column100 column2" data-column="column2">--</td>
+                        <td class="column100 column3" data-column="column3"><i class="fa-solid fa-check"></i> (2x)</td>
+                        <td class="column100 column4" data-column="column4"><i class="fa-solid fa-check"></i> (3x)</td>
+                        <td class="column100 column5" data-column="column5">--</td>
+                        <td class="column100 column6" data-column="column6"><i class="fa-solid fa-check"></i> (2x)</td>
+                        <td class="column100 column7" data-column="column7">--</td>
+                        <td class="column100 column8" data-column="column8">--</td>
+                        </tr>
+                        <tr class="row100">
+                        <td class="column100 column1" data-column="column1">Stakestone</td>
+                        <td class="column100 column2" data-column="column2"><i class="fa-solid fa-check"></i> (1x)</td>
+                        <td class="column100 column3" data-column="column3">--</td>
+                        <td class="column100 column4" data-column="column4">--</td>
+                        <td class="column100 column5" data-column="column5">--</td>
+                        <td class="column100 column6" data-column="column6">--</td>
+                        <td class="column100 column7" data-column="column7"><i class="fa-solid fa-check"></i> (2x)</td>
+                        <td class="column100 column8" data-column="column8"><i class="fa-solid fa-check"></i> (2x)</td>
+                        </tr>
+                        <tr class="row100">
+                        <td class="column100 column1" data-column="column1">Kelp DAO</td>
+                        <td class="column100 column2" data-column="column2">--</td>
+                        <td class="column100 column3" data-column="column3"><i class="fa-solid fa-check"></i> (3x)</td>
+                        <td class="column100 column4" data-column="column4"><i class="fa-solid fa-check"></i> (1x)</td>
+                        <td class="column100 column5" data-column="column5">--</td>
+                        <td class="column100 column6" data-column="column6"><i class="fa-solid fa-check"></i> (2x)</td>
+                        <td class="column100 column7" data-column="column7">--</td>
+                        <td class="column100 column8" data-column="column8">--</td>
+                        </tr>
+                        <tr class="row100">
+                        <td class="column100 column1" data-column="column1">Pendle</td>
+                        <td class="column100 column2" data-column="column2"><i class="fa-solid fa-check"></i> (2x)</td>
+                        <td class="column100 column3" data-column="column3">--</td>
+                        <td class="column100 column4" data-column="column4">--</td>
+                        <td class="column100 column5" data-column="column5"><i class="fa-solid fa-check"></i> (2x)</td>
+                        <td class="column100 column6" data-column="column6">--</td>
+                        <td class="column100 column7" data-column="column7"><i class="fa-solid fa-check"></i> (1x)</td>
+                        <td class="column100 column8" data-column="column8"><i class="fa-solid fa-check"></i> (2x)</td>
+                        </tr>
+                        <tr class="row100">
+                        <td class="column100 column1" data-column="column1">Ethena</td>
+                        <td class="column100 column2" data-column="column2">--</td>
+                        <td class="column100 column3" data-column="column3"><i class="fa-solid fa-check"></i> (2x)</td>
+                        <td class="column100 column4" data-column="column4"><i class="fa-solid fa-check"></i> (1x)</td>
+                        <td class="column100 column5" data-column="column5">--</td>
+                        <td class="column100 column6" data-column="column6"><i class="fa-solid fa-check"></i> (2x)</td>
+                        <td class="column100 column7" data-column="column7">--</td>
+                        <td class="column100 column8" data-column="column8">--</td>
+                        </tr>
+                        <tr class="row100">
+                        <td class="column100 column1" data-column="column1">Puffer Finance</td>
+                        <td class="column100 column2" data-column="column2"><i class="fa-solid fa-check"></i> (2x)</td>
+                        <td class="column100 column3" data-column="column3">--</td>
+                        <td class="column100 column4" data-column="column4">--</td>
+                        <td class="column100 column5" data-column="column5">--</td>
+                        <td class="column100 column6" data-column="column6">--</td>
+                        <td class="column100 column7" data-column="column7"><i class="fa-solid fa-check"></i> (3x)</td>
+                        <td class="column100 column8" data-column="column8"><i class="fa-solid fa-check"></i> (2x)</td>
+                        </tr>
+                        <tr class="row100">
+                        <td class="column100 column1" data-column="column1">Aerodrome</td>
+                        <td class="column100 column2" data-column="column2"><i class="fa-solid fa-check"></i> (2x)</td>
+                        <td class="column100 column3" data-column="column3">--</td>
+                        <td class="column100 column4" data-column="column4">--</td>
+                        <td class="column100 column5" data-column="column5"><i class="fa-solid fa-check"></i> (3x)</td>
+                        <td class="column100 column6" data-column="column6">--</td>
+                        <td class="column100 column7" data-column="column7"><i class="fa-solid fa-check"></i> (2x)</td>
+                        <td class="column100 column8" data-column="column8"><i class="fa-solid fa-check"></i> (2x)</td>
+                        </tr>
+                        </tbody>
+                        </table>
+                    </div>
+            </div>
+        </div>
       </section>
-      <!-- Contact-->
-      <section class="contact-section bg-black">
-          <div class="container px-4 px-lg-5">
+      <!-- Leaderboard-->
+
+      <section class="projects-section bg-royal-purple hidden" id="Leaderboard">
+        <div class="container-fluid px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+            <div class="justify-content-center w-100">
+                <h1 class="stakeFont" style="font-size:36px;color:#FFF;">Leaderboard</h1><br><br>
+                <div class="table100 ver6 m-b-110">
+                    <table data-vertable="ver6">
+                    <thead>
+                    <tr class="row100 head">
+                    <th class="column100 column0" data-column="column1">Rank</th>
+                    <th class="column100 column1" data-column="column1">Account</th>
+                    <th class="column100 column2" data-column="column2">Ethereum</th>
+                    <th class="column100 column3" data-column="column3">Arbitrum</th>
+                    <th class="column100 column4" data-column="column4">Optimism</th>
+                    <th class="column100 column5" data-column="column5">Blast</th>
+                    <th class="column100 column6" data-column="column6">zkSync</th>
+                    <th class="column100 column7" data-column="column7">Polygon zkEVM</th>
+                    <th class="column100 column8" data-column="column8">Linea</th>
+                    <th class="column100 column8" data-column="column8">Total Points</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="row100">
+                    <td class="column100 column0" data-column="column2">#1337</td>
+                    <td class="column100 column1" data-column="column1">You</td>
+                    <td class="column100 column2" data-column="column2">800</td>
+                    <td class="column100 column3" data-column="column3">--</td>
+                    <td class="column100 column4" data-column="column4">--</td>
+                    <td class="column100 column5" data-column="column5">800</td>
+                    <td class="column100 column6" data-column="column6">--</td>
+                    <td class="column100 column7" data-column="column7">500</td>
+                    <td class="column100 column8" data-column="column8">800</td>
+                    <td class="column100 column8" data-column="column8">2900</td>
+                    </tr>
+                    <tr class="row100">
+                    <td class="column100 column0" data-column="column2">#1</td>
+                    <td class="column100 column1" data-column="column1">Jane Medina</td>
+                    <td class="column100 column2" data-column="column2">--</td>
+                    <td class="column100 column3" data-column="column3">500</td>
+                    <td class="column100 column4" data-column="column4">500</td>
+                    <td class="column100 column5" data-column="column5">--</td>
+                    <td class="column100 column6" data-column="column6">900</td>
+                    <td class="column100 column7" data-column="column7">--</td>
+                    <td class="column100 column8" data-column="column8">--</td>
+                    <td class="column100 column8" data-column="column8">8600</td>
+                    </tr>
+                    <tr class="row100">
+                    <td class="column100 column0" data-column="column2">#2</td>
+                    <td class="column100 column1" data-column="column1">Billy Mitchell</td>
+                    <td class="column100 column2" data-column="column2">900</td>
+                    <td class="column100 column3" data-column="column3">--</td>
+                    <td class="column100 column4" data-column="column4">--</td>
+                    <td class="column100 column5" data-column="column5">--</td>
+                    <td class="column100 column6" data-column="column6">--</td>
+                    <td class="column100 column7" data-column="column7">200</td>
+                    <td class="column100 column8" data-column="column8">800</td>
+                    <td class="column100 column8" data-column="column8">8500</td>
+                    </tr>
+                    <tr class="row100">
+                    <td class="column100 column0" data-column="column2">#3</td>
+                    <td class="column100 column1" data-column="column1">Beverly Reid</td>
+                    <td class="column100 column2" data-column="column2">--</td>
+                    <td class="column100 column3" data-column="column3">500</td>
+                    <td class="column100 column4" data-column="column4">500</td>
+                    <td class="column100 column5" data-column="column5">--</td>
+                    <td class="column100 column6" data-column="column6">900</td>
+                    <td class="column100 column7" data-column="column7">--</td>
+                    <td class="column100 column8" data-column="column8">--</td>
+                    <td class="column100 column8" data-column="column8">8400</td>
+                    </tr>
+                    <tr class="row100">
+                    <td class="column100 column0" data-column="column2">#4</td>
+                    <td class="column100 column1" data-column="column1">Tiffany Wade</td>
+                    <td class="column100 column2" data-column="column2">800</td>
+                    <td class="column100 column3" data-column="column3">--</td>
+                    <td class="column100 column4" data-column="column4">--</td>
+                    <td class="column100 column5" data-column="column5">800</td>
+                    <td class="column100 column6" data-column="column6">--</td>
+                    <td class="column100 column7" data-column="column7">500</td>
+                    <td class="column100 column8" data-column="column8">800</td>
+                    <td class="column100 column8" data-column="column8">8300</td>
+                    </tr>
+                    <tr class="row100">
+                    <td class="column100 column0" data-column="column2">#5</td>   
+                    <td class="column100 column1" data-column="column1">Sean Adams</td>
+                    <td class="column100 column2" data-column="column2">--</td>
+                    <td class="column100 column3" data-column="column3">500</td>
+                    <td class="column100 column4" data-column="column4">500</td>
+                    <td class="column100 column5" data-column="column5">--</td>
+                    <td class="column100 column6" data-column="column6">900</td>
+                    <td class="column100 column7" data-column="column7">--</td>
+                    <td class="column100 column8" data-column="column8">--</td>
+                    <td class="column100 column8" data-column="column8">8200</td>
+                    </tr>
+                    <tr class="row100">
+                    <td class="column100 column0" data-column="column2">#6</td>
+                    <td class="column100 column1" data-column="column1">Rachel Simpson</td>
+                    <td class="column100 column2" data-column="column2">900</td>
+                    <td class="column100 column3" data-column="column3">--</td>
+                    <td class="column100 column4" data-column="column4">--</td>
+                    <td class="column100 column5" data-column="column5">--</td>
+                    <td class="column100 column6" data-column="column6">--</td>
+                    <td class="column100 column7" data-column="column7">200</td>
+                    <td class="column100 column8" data-column="column8">800</td>
+                    <td class="column100 column8" data-column="column8">8100</td>
+                    </tr>
+                    <tr class="row100">
+                    <td class="column100 column0" data-column="column2">#7</td>
+                    <td class="column100 column1" data-column="column1">Mark Salazar</td>
+                    <td class="column100 column2" data-column="column2">800</td>
+                    <td class="column100 column3" data-column="column3">--</td>
+                    <td class="column100 column4" data-column="column4">--</td>
+                    <td class="column100 column5" data-column="column5">800</td>
+                    <td class="column100 column6" data-column="column6">--</td>
+                    <td class="column100 column7" data-column="column7">500</td>
+                    <td class="column100 column8" data-column="column8">800</td>
+                    <td class="column100 column8" data-column="column8">8000</td>
+                    </tr>
+                    </tbody>
+                    </table>
+                    </div>
+            </div>
+        </div>
+      </section>
+      <!-- Airdrop-->
+      
+      <section class="projects-section bg-royal-purple hidden" id="Airdrop">
+        <div class="container-fluid px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+            <div class="justify-content-center w-100">
+                <center>
+                <h1 class="stakeFont" style="font-size:36px;color:#FFF;">Stake Your Seat At The $Roundtable</h1><br><br>
+                <img src="img/knight.png" style="max-width:600px"></center>
+            </div>
+        </div>
+      </section>
+
+      <!-- Footer-->
+      <section class="contact-section bg-footer">
+          <div class="container-fluid px-4 px-lg-5">
               <div class="row gx-4 gx-lg-5">
-                  <div class="col-md-4 mb-3 mb-md-0">
-                      <div class="card py-4 h-100">
-                          <div class="card-body text-center">
-                              <i class="fas fa-map-marked-alt text-primary mb-2"></i>
-                              <h4 class="text-uppercase m-0">Address</h4>
-                              <hr class="my-4 mx-auto" />
-                              <div class="small text-black-50">4923 Market Street, Orlando FL</div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-md-4 mb-3 mb-md-0">
-                      <div class="card py-4 h-100">
-                          <div class="card-body text-center">
-                              <i class="fas fa-envelope text-primary mb-2"></i>
-                              <h4 class="text-uppercase m-0">Email</h4>
-                              <hr class="my-4 mx-auto" />
-                              <div class="small text-black-50"><a href="#!">hello@yourdomain.com</a></div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-md-4 mb-3 mb-md-0">
-                      <div class="card py-4 h-100">
-                          <div class="card-body text-center">
-                              <i class="fas fa-mobile-alt text-primary mb-2"></i>
-                              <h4 class="text-uppercase m-0">Phone</h4>
-                              <hr class="my-4 mx-auto" />
-                              <div class="small text-black-50">+1 (555) 902-8832</div>
-                          </div>
-                      </div>
-                  </div>
+               <div class="mt-20 text-left max-w-screen-xl mx-auto">
+                <center><h1 class="stakeFont" style="font-size:36px;color:#FFF;">Our Investors</h1></center>
+                <ul role="list" class="investors">
+                    <li class=""><div class="flex items-center justify-center"><img alt="Borderless Capital" style="color: transparent;" src="img/borderless-logo.4388c918.svg" width="242" height="50"></div></li>
+                    <li class=""><div class="flex items-center justify-center"><img alt="Lightspeed" style="color: transparent;" src="img/lightspeed-faction-logo.a131b076.svg" width="129" height="50"></div></li>
+                    <li class=""><div class="flex items-center justify-center"><img alt="Blockchain.com" loading="lazy" decoding="async" data-nimg="1" class="pt-undefined" style="color: transparent;" src="img/blockchain-logo.21e02e4b.svg" width="322" height="125"></div></li>
+                    <li class=""><div class="flex items-center justify-center"><img alt="Delphi Ventures" loading="lazy" decoding="async" data-nimg="1" class="pt-undefined" style="color: transparent;" src="img/Delphi-Ventures.e8406ccc.svg" width="295" height="50"></div></li>
+                    <li class=""><div class="flex items-center justify-center"><img alt="XBTO" loading="lazy" decoding="async" data-nimg="1" class="pt-undefined" style="color: transparent;" src="img/xbto.e3c6a9cc.svg" width="165" height="50"></div></li>
+                    <li class=""><div class="flex items-center justify-center"><img alt="Bankless" style="color: transparent;" src="img/bankless-logo.ebb80048.svg" width="127" height="50"></div></li></ul>
+                    
+                    <ul role="list" class="investors">
+                    <li class=""><div class="flex items-center justify-center"><img alt="Caladan" style="color: transparent;" src="img/caladan.57c8d32e.svg" width="199" height="45"></div></li>
+                    <li class=""><div class="flex items-center justify-center"><img alt="Wave Digital Assets" style="color: transparent;" src="img/wave-digital-logo.fb354fe3.svg" width="159" height="52"></div></li>
+                    <li class=""><div class="flex items-center justify-center"><img alt="Hyperithm Group" loading="lazy" decoding="async" data-nimg="1" class="pt-undefined" style="color: transparent;" src="img/hyperithm-logo.8d587109.svg" width="201" height="68"></div></li>
+                    <li class=""><div class="flex items-center justify-center"><img alt="Sidedoor Ventures" style="color: transparent;" src="img/sidedoorventures-logo.40514c93.svg" width="210" height="40"></div></li>
+                    <li class=""><div class="flex items-center justify-center"><img alt="Psalion" style="color: transparent;" src="img/psalionvc-logo.e270f78c.svg" width="258" height="50"></div></li>
+                    <li class=""><div class="flex items-center justify-center"><img alt="Kronos" loading="lazy" decoding="async" data-nimg="1" class="pt-undefined" style="color: transparent;" src="img/kronos-logo.d2f76af5.svg" width="155" height="50"></div></li></ul>
+                    
+                    <ul role="list" class="investors">
+                    <li class=""><div class="flex items-center justify-center"><img alt="Wormhole" style="color: transparent;" src="img/logo-wh-ccef-white.2aa0fdab.svg" width="150" height="40"></div></li>
+                    <li class=""><div class="flex items-center justify-center"><img alt="Cadenza" style="color: transparent;" src="img/Cadenza_logo.9ddf5bad.svg" width="109" height="20"></div></li>
+                    <li class=""><div class="flex items-center justify-center"><img alt="MH Ventures" style="color: transparent;" src="img/mh-ventures.484dbcd9.svg" width="119" height="40"></div></li>
+                    <li class=""><div class="flex items-center justify-center"><img alt="Blockchain Founders Fund" style="color: transparent;" src="img/bff-logo.785c2914.svg" width="67" height="40"></div></li>
+                    <li class=""><div class="flex items-center justify-center"><img alt="Humla Financial" style="color: transparent;" src="img/logo-humla-vc.220455d1.svg" width="101" height="40"></div></li>
+                </ul></div>   
+
               </div>
               <div class="social d-flex justify-content-center">
                   <a class="mx-2" href="#!"><i class="fab fa-twitter"></i></a>
                   <a class="mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
                   <a class="mx-2" href="#!"><i class="fab fa-github"></i></a>
               </div>
+              <div class="p-5" style="border-top: #222 solid 1px;margin-top: 3rem;">
+                <div class="flex flex-col-reverse items-center">
+                <p class="text-sm" style="float:left">Copyright © 2024 Roundtable Limited. All rights reserved.</p>
+                <div class="flex items-center" style="float:right">
+                <a target="_blank" rel="noopener noreferrer" href="https://roundtable.gitbook.io/roundtable.capital">Roundtable Docs</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a target="_blank" rel="noopener noreferrer" href="https://roundtable.capital/terms-of-service">Terms of Service</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a target="_blank" rel="noopener noreferrer" href="https://roundtable.capital/privacy-policy">Privacy Policy</a>
+            </div></div></div>
           </div>
       </section>
       <!-- Footer-->
-      <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Your Website 2023</div></footer>
+      <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Roundtable 2024</div></footer>
 
-    <main class="main">
-      <h1>Welcome to this demo of <span>Web3-Onboard</span> + Vanilla JS!</h1>
-        <div class="wallet hidden">
-          <div class="connected">
-            <div class="address"></div>
-            <div class="label"></div>
-          </div>
-          <button class="disconnect-button">Disconnect</button>
-        </div>
-        <div class="disconnected outerConnect">
-          <button class="connect-button" type="button">Connect Wallet</button>
-        </div>
-    </main>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <script>
       //navbar page switcher
       function show(shown) {
@@ -280,12 +583,12 @@
 
       // Activate Bootstrap scrollspy on the main nav element
       const mainNav = document.body.querySelector('#mainNav');
-      if (mainNav) {
+      /* if (mainNav) {
           new bootstrap.ScrollSpy(document.body, {
               target: '#mainNav',
               rootMargin: '0px 0px -40%',
           });
-      };
+      }; */
 
       // Collapse responsive navbar when toggler is visible
       const navbarToggler = document.body.querySelector('.navbar-toggler');
@@ -301,6 +604,13 @@
       });
 
       });
+
+      
+
+//Table highlight
+
+(function($){"use strict";$('.column100').on('mouseover',function(){var table1=$(this).parent().parent().parent();var table2=$(this).parent().parent();var verTable=$(table1).data('vertable')+"";var column=$(this).data('column')+"";$(table2).find("."+column).addClass('hov-column-'+verTable);$(table1).find(".row100.head ."+column).addClass('hov-column-head-'+verTable);});$('.column100').on('mouseout',function(){var table1=$(this).parent().parent().parent();var table2=$(this).parent().parent();var verTable=$(table1).data('vertable')+"";var column=$(this).data('column')+"";$(table2).find("."+column).removeClass('hov-column-'+verTable);$(table1).find(".row100.head ."+column).removeClass('hov-column-head-'+verTable);});})(jQuery);
+
     </script>
   </body>
 </html>

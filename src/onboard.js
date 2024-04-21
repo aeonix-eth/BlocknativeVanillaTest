@@ -47,8 +47,8 @@ const chains = [
 
 const appMetadata = {
   name: 'Roundtable',
-  icon: 'logo.png',
-  logo: 'logo.png',
+  icon: 'img/logo.png',
+  logo: 'img/logo.png',
   description: 'Stake Your Seat',
   recommendedInjectedWallets: [
     { name: 'MetaMask', url: 'https://metamask.io' },

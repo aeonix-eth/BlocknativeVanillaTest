@@ -1,5 +1,5 @@
 import onboard from './onboard'
-import './styles.css'
+import '../css/styles.css'
 
 const $connect = document.querySelector('.connect-button')
 const $disconnect = document.querySelector('.disconnect-button')
