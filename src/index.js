@@ -22,8 +22,8 @@ const addConnectedInfo = connectedAccount => {
   const address = connectedAccount.address
   const start = address.slice(0, 5)
   const end = address.slice(-5, -1)
-  $address.innerHTML = `${start}.....${end}`
-  $label.innerHTML = `Connected Wallet: ${label}`
+  $z.innerHTML = `${start}.....${end}`
+  //$label.innerHTML = `Connected Wallet: ${label}`
 }
 
 $connect.addEventListener('click', async _ => {
