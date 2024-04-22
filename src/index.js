@@ -22,7 +22,7 @@ const addConnectedInfo = connectedAccount => {
   const address = connectedAccount.address
   const start = address.slice(0, 5)
   const end = address.slice(-5, -1)
-  $z.innerHTML = `${start}.....${end}`
+  $address.innerHTML = `${start}.....${end}`
   //$label.innerHTML = `Connected Wallet: ${label}`
 }
 
@@ -42,3 +42,17 @@ $disconnect.addEventListener('click', _ => {
   $wallet.classList.add('hidden')
   $disconnected.classList.remove('hidden')
 })
+
+//recognition of automatic connect on page load and updating of button to reflect connected state
+const state = onboard.state.select();
+const { unsubscribe } = state.subscribe(function(update){
+  if (update.wallets[0]) {
+    const connectedAccount = update.wallets[0].accounts[0]
+    label = update.wallets[0].label
+    addConnectedInfo(connectedAccount)
+    $wallet.classList.remove('hidden')
+    $disconnected.classList.add('hidden')
+  } 
+  console.log('state update: ', update)
+});
+
