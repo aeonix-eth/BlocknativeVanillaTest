@@ -20,6 +20,8 @@ const disconnect = () => {
 
 const addConnectedInfo = connectedAccount => {
   const address = connectedAccount.address
+  const ENS = connectedAccount.ens.name
+  console.log("ENS: " + ENS)
   const start = address.slice(0, 5)
   const end = address.slice(-5, -1)
   $address.innerHTML = `${start}.....${end}`

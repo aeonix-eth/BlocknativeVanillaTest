@@ -59,7 +59,7 @@ module.exports = {
       Buffer: ['buffer', 'Buffer']
     }),
     new webpack.optimize.MinChunkSizePlugin({
-      minChunkSize: 100000, // ~100kb
+      minChunkSize: 512000, // ~512kb
   }),
     new NodePolyfillPlugin()
   ],
