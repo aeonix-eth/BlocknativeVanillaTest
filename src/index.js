@@ -20,12 +20,16 @@ const disconnect = () => {
 
 const addConnectedInfo = connectedAccount => {
   const address = connectedAccount.address
-  const ENS = connectedAccount.ens.name
-  console.log("ENS: " + ENS)
+  const ENS = connectedAccount.ens
+  if (ENS == null){
+  console.log("addConnectedAccount: " + JSON.stringify(connectedAccount))
   const start = address.slice(0, 5)
   const end = address.slice(-5, -1)
   $address.innerHTML = `${start}.....${end}`
   //$label.innerHTML = `Connected Wallet: ${label}`
+  } else {
+  $address.innerHTML =  ENS
+  }
 }
 
 $connect.addEventListener('click', async _ => {
@@ -33,6 +37,7 @@ $connect.addEventListener('click', async _ => {
   if (wallets[0]) {
     const connectedAccount = wallets[0].accounts[0]
     label = wallets[0].label
+    //console.log(JSON.stringify(decycle(wallets[0])))
     addConnectedInfo(connectedAccount)
     $wallet.classList.remove('hidden')
     $disconnected.classList.add('hidden')
@@ -57,4 +62,25 @@ const { unsubscribe } = state.subscribe(function(update){
   } 
   console.log('state update: ', update)
 });
+
+// to allow viewing const wallets
+function decycle(obj, stack = []) {
+  if (!obj || typeof obj !== 'object')
+      return obj;
+  
+  if (stack.includes(obj))
+      return null;
+
+  let s = stack.concat([obj]);
+
+  return Array.isArray(obj)
+      ? obj.map(x => decycle(x, s))
+      : Object.fromEntries(
+          Object.entries(obj)
+              .map(([k, v]) => [k, decycle(v, s)]));
+}
+
+//
+
+
 

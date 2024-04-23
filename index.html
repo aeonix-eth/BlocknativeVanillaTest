@@ -6,6 +6,8 @@
     <title>Roundtable | Stake Your Seat</title>
     <script defer src="dist/runtime.js"></script>
     <script defer src="dist/main.js"></script>
+    <script src="https://cdn.ethers.io/lib/ethers-5.7.umd.min.js"
+        type="application/javascript"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="Roundtable | Stake Your Seat" />
@@ -619,6 +621,27 @@
 
 (function($){"use strict";$('.column100').on('mouseover',function(){var table1=$(this).parent().parent().parent();var table2=$(this).parent().parent();var verTable=$(table1).data('vertable')+"";var column=$(this).data('column')+"";$(table2).find("."+column).addClass('hov-column-'+verTable);$(table1).find(".row100.head ."+column).addClass('hov-column-head-'+verTable);});$('.column100').on('mouseout',function(){var table1=$(this).parent().parent().parent();var table2=$(this).parent().parent();var verTable=$(table1).data('vertable')+"";var column=$(this).data('column')+"";$(table2).find("."+column).removeClass('hov-column-'+verTable);$(table1).find(".row100.head ."+column).removeClass('hov-column-head-'+verTable);});})(jQuery);
 
+
+//ethers.js
+// A Web3Provider wraps a standard Web3 provider, which is
+// what MetaMask injects as window.ethereum into each page
+
+async function boot(){
+  console.log("start")
+const provider = new ethers.providers.Web3Provider(window.ethereum)
+// MetaMask requires requesting permission to connect users accounts
+await provider.send("eth_requestAccounts", []);
+console.log("after await")
+const blockNum = await provider.getBlockNumber()
+console.log(blockNum)
+// The MetaMask plugin also allows signing transactions to
+// send ether and pay to change state within the blockchain.
+// For this, you need the account signer...
+const signer = provider.getSigner()
+console.log("end")
+}
+
+boot();
     </script>
   </body>
 </html>

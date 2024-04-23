@@ -5,6 +5,7 @@ import coinbaseModule from '@web3-onboard/coinbase'
 import bitgetModule from '@web3-onboard/bitget'
 //import ledgerModule from '@web3-onboard/ledger'
 
+
 const injected = injectedWalletsModule()
 //const ledger = ledgerModule()
 //const walletConnect = walletConnectModule({})
@@ -62,6 +63,7 @@ const appMetadata = {
 const connect = {
   showSidebar: true,
   disableClose: false,
+  autoConnectLastWallet: true,
   autoConnectAllPreviousWallet: true
 }
 
