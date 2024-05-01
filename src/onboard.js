@@ -23,28 +23,28 @@ const chains = [
     rpcUrl: `https://rpc.flashbots.net`
   },
   {
-    id: 137,
-    token: 'MATIC',
-    label: 'Polygon PoS',
-    rpcUrl: 'https://matic-mainnet.chainstacklabs.com'
-  },
-  {
     id: '0x2105',
     token: 'ETH',
     label: 'Base',
     rpcUrl: 'https://mainnet.base.org'
   },
   {
-    id: '0xa4ec',
+    id: '0xaa36a7',
     token: 'ETH',
-    label: 'Celo',
-    rpcUrl: 'https://1rpc.io/celo'
+    label: 'Sepolia',
+    rpcUrl: 'https://ethereum-sepolia-rpc.publicnode.com'
   },
   {
-    id: 666666666,
-    token: 'DEGEN',
-    label: 'Degen',
-    rpcUrl: 'https://rpc.degen.tips'
+    id: '0x138d5',
+    token: 'BERA',
+    label: 'Berachain',
+    rpcUrl: 'https://artio.rpc.berachain.com'
+  },
+  {
+    id: 137,
+    token: 'MATIC',
+    label: 'Polygon PoS',
+    rpcUrl: 'https://matic-mainnet.chainstacklabs.com'
   }
 ]
 
